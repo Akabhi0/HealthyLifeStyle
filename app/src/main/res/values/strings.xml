@@ -11,4 +11,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--messages-->
+    <string name="enter_mobile">Enter your mobile number</string>
+    <string name="enter_password">Enter password</string>
+
+    <!--navigation menu-->
+    <string name="Dashboard">Dashboard</string>
+    <string name="Profile">Profile</string>
+    <string name="calculators">Calculators</string>
+    <string name="my_queries">My Queries</string>
+    <string name="ask_question">Ask Question</string>
+    <string name="Feedback">Feedback</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="rate_the_app">Rate the app</string>
+    <string name="share_apps">Share App</string>
+    <string name="logout">Logout</string>
+
+
 </resources>

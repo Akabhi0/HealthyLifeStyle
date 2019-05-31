@@ -3,17 +3,16 @@ package com.dev.healthylifestyle.ui.common.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+
 import com.dev.healthylifestyle.R;
-import com.dev.healthylifestyle.ui.patient.activities.DashboardActivity;
+import com.dev.healthylifestyle.ui.patient.view.activity.NavigationActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,7 +39,7 @@ public class RegistrationTypeFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getActivity(), DashboardActivity.class));
+                startActivity(new Intent(getActivity(), NavigationActivity.class));
             }
         });
 

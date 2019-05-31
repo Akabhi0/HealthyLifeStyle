@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/grp1">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_sections"
+            android:title="@string/Dashboard" />
+    </group>
+    <group android:id="@+id/grp2">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_man"
+            android:title="@string/Profile" />
+    </group>
+    <group android:id="@+id/grp3">
+        <item
+            android:id="@+id/nav_calculators"
+            android:icon="@drawable/ic_calculating"
+            android:title="@string/calculators" />
+    </group>
+    <group android:id="@+id/grp5">
+        <item
+            android:id="@+id/nav_queries"
+            android:icon="@drawable/ic_pros_and_cons"
+            android:title="@string/my_queries" />
+    </group>
+    <group android:id="@+id/grp6">
+        <item
+            android:id="@+id/nav_question"
+            android:icon="@drawable/ic_question"
+            android:title="@string/ask_question" />
+    </group>
+    <group android:id="@+id/grp7">
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="@string/Feedback" />
+    </group>
+    <group android:id="@+id/grp8">
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_phone"
+            android:title="@string/contact_us" />
+    </group>
+    <group android:id="@+id/grp9">
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/ic_favourites"
+            android:title="@string/rate_the_app" />
+    </group>
+    <group android:id="@+id/grp10">
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share"
+            android:title="@string/share_apps" />
+    </group>
+    <group android:id="@+id/grp11">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout_2"
+            android:title="@string/logout" />
+    </group>
+</menu>

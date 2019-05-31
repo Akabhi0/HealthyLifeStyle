@@ -2,14 +2,13 @@ package com.dev.healthylifestyle.utility;
 
 import android.util.Log;
 
-
-import com.dev.healthylifestyle.R;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.dev.healthylifestyle.R;
 
 public class FragmentHelper {
     private static final FragmentHelper ourInstance = new FragmentHelper();
@@ -60,53 +59,4 @@ public class FragmentHelper {
         }
 
     }
-
-    public void showPropertyConfirmationDialogFragment(DialogFragment fragment, FragmentManager fragmentManager, @NonNull String tag) {
-        if (fragment != null) {
-            Fragment prev = fragmentManager.findFragmentByTag(tag);
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            if (prev != null) {
-                ft.remove(prev);
-            }
-            ft.addToBackStack(tag);
-            ft.setCustomAnimations(R.anim.slide_out_right, R.anim.slide_in_left);
-
-            fragment.show(ft, "ConfirmDialog");
-
-        }
-
-    }
-
-    public void showAddReferralDialogFragment(DialogFragment fragment, FragmentManager fragmentManager, @NonNull String tag) {
-        if (fragment != null) {
-            Fragment prev = fragmentManager.findFragmentByTag(tag);
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            if (prev != null) {
-                ft.remove(prev);
-            }
-            ft.addToBackStack(tag);
-            ft.setCustomAnimations(R.anim.slide_out_right, R.anim.slide_in_left);
-
-            fragment.show(ft, "ConfirmDialog");
-
-        }
-
-    }
-
-    public void showMonthDialogFragment(DialogFragment fragment, FragmentManager fragmentManager, @NonNull String tag) {
-        if (fragment != null) {
-            Fragment prev = fragmentManager.findFragmentByTag(tag);
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            if (prev != null) {
-                ft.remove(prev);
-            }
-            ft.addToBackStack(tag);
-            ft.setCustomAnimations(R.anim.slide_out_right, R.anim.slide_in_left);
-
-            fragment.show(ft, "ConfirmDialog");
-
-        }
-
-    }
-
 }

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <!--<variable-->
+        <!--name="profileModel"-->
+        <!--type="com.example.dairyman.model.ProfileModel" />-->
+
+        <!--<variable-->
+        <!--name="viewModel"-->
+        <!--type="com.example.dairyman.viewModel.ProfileViewModel" />-->
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></androidx.constraintlayout.widget.ConstraintLayout>
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<androidx.appcompat.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/colorPrimary">-->
+
+    <!--</androidx.appcompat.widget.Toolbar>-->
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginStart="@dimen/dimen_16dp"-->
+    <!--android:layout_marginEnd="@dimen/dimen_16dp">-->
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/linear_one"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--tools:ignore="MissingConstraints">-->
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+    <!--android:id="@+id/aciv_profile"-->
+    <!--android:layout_width="@dimen/dimes_150dp"-->
+    <!--android:layout_height="@dimen/dimes_150dp"-->
+    <!--android:layout_marginTop="@dimen/dimes_16dp"-->
+    <!--android:background="@drawable/circle_fill"-->
+    <!--app:layout_constraintTop_toTopOf="parent"-->
+    <!--tools:ignore="MissingConstraints" />-->
+
+    <!--<androidx.appcompat.widget.AppCompatImageView-->
+    <!--android:id="@+id/aciv_camera"-->
+    <!--android:layout_width="@dimen/dimes_40dp"-->
+    <!--android:layout_height="@dimen/dimes_40dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_marginTop="-16dp"-->
+    <!--android:src="@drawable/ic_photo_camera"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/aciv_profile"-->
+    <!--tools:ignore="MissingConstraints" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_one"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/linear_one">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_name"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/name"-->
+
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_two"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_one">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_mobile"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/mobile_hint"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:inputType="number"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_three"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_two">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_landline"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/landline"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:inputType="number"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_four"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_three">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_email"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/email"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_five"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_four">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_address"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/address"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_six"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_five">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_village"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/village"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_seven"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_six">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_hamlet"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/hamlet"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_eight"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_seven">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_taluka"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/taluka"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_nine"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_eight">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_distic"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/distic"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_ten"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_nine">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_pincode"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/pincode"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:inputType="number"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<androidx.appcompat.widget.AppCompatSpinner-->
+    <!--android:id="@+id/acs_state"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="@dimen/dimen_16dp"-->
+    <!--android:layout_marginTop="@dimen/dimen_16dp"-->
+    <!--android:layout_marginEnd="@dimen/dimen_16dp"-->
+    <!--android:background="@color/colorPrimaryDark"-->
+    <!--android:padding="@dimen/dimes_16dp"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_ten"-->
+    <!--tools:ignore="MissingConstraints" />-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_eleven"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/aciv_voterId"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/acs_state">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_voter_id"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/voter_id"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<androidx.appcompat.widget.AppCompatImageView-->
+    <!--android:id="@+id/aciv_voterId"-->
+    <!--android:layout_width="@dimen/dimes_50dp"-->
+    <!--android:layout_height="@dimen/dimes_50dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/text_input_eleven"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/acs_state"-->
+    <!--app:srcCompat="@drawable/ic_photo_camera"-->
+    <!--tools:ignore="VectorDrawableCompat" />-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_twolv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_eleven">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_pan"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/pan_card"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:text="@={profileModel.pannNmberProfile}"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:id="@+id/text_input_thirteen"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_twolv">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--android:id="@+id/actv_adhar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/black"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:fontFamily="@font/open_sans_semi_bold"-->
+    <!--android:hint="@string/aadhar"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:inputType="number"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textColorHint="@color/black"-->
+    <!--android:textSize="15sp" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<androidx.appcompat.widget.AppCompatSpinner-->
+    <!--android:id="@+id/acs_spinner"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/dimen_16dp"-->
+    <!--android:layout_marginLeft="@dimen/dimen_16dp"-->
+    <!--android:layout_marginRight="@dimen/dimen_16dp"-->
+    <!--android:background="@color/colorPrimaryDark"-->
+    <!--android:padding="@dimen/dimen_16dp"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/text_input_thirteen"-->
+    <!--tools:ignore="MissingConstraints" />-->
+
+    <!--<androidx.appcompat.widget.AppCompatButton-->
+    <!--android:id="@+id/actv_save"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_margin="@dimen/dimen_16dp"-->
+    <!--android:background="@color/colorPrimary"-->
+    <!--android:clickable="true"-->
+    <!--android:elevation="@dimen/dimen_30dp"-->
+    <!--android:padding="@dimen/dimen_12dp"-->
+    <!--android:text="@string/register"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textSize="@dimen/dimen_16sp"-->
+    <!--android:translationZ="@dimen/dimen_5dp"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/acs_spinner" />-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--</ScrollView>-->
+    <!--</LinearLayout>-->
+</layout>
