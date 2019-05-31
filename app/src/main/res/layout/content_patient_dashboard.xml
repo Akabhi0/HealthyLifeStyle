@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="dashboard_content"
+            type="com.dev.healthylifestyle.ui.patient.activities.DashboardActivity"/>
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_selectdate"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_40dp"
+        android:text="    Select Date    "
+        android:gravity="center"
+        android:background="@drawable/app_button"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="@dimen/dimen_70dp"/>
+
+    <FrameLayout
+        android:layout_width="@dimen/dimen_40dp"
+        android:layout_height="@dimen/dimen_40dp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_70dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_expand"
+            android:layout_width="@dimen/dimen_40dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@drawable/ic_expand_less_black_24dp"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_expand_more"
+            android:layout_width="@dimen/dimen_40dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@drawable/ic_expand_more_black_24dp"
+            android:visibility="gone"
+            >
+
+        </androidx.appcompat.widget.AppCompatImageView>
+    </FrameLayout>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dashboard_graph"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_200dp"
+        android:layout_below="@+id/tv_selectdate"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:src="@drawable/bg_app"
+        />
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekbar_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40dp"
+        android:layout_below="@+id/dashboard_graph"
+        android:progressDrawable="@drawable/custom_progress"
+        android:visibility="invisible"/>
+
+    <FrameLayout
+        android:id="@+id/fl_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekbar_horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="50%"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="3dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="30%"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="3dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="80%"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="3dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="60%"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="3dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <ProgressBar
+
+                android:id="@+id/circularProgressbar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="50"
+
+                android:progressDrawable="@drawable/circular"
+                android:secondaryProgress="100"
+                />
+            <ProgressBar
+
+                android:id="@+id/circularProgressbar2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="30"
+
+                android:progressDrawable="@drawable/circular"
+                android:secondaryProgress="100"
+                />
+            <ProgressBar
+
+                android:id="@+id/circularProgressbar3"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="80"
+
+                android:progressDrawable="@drawable/circular"
+                android:secondaryProgress="100"
+                />
+            <ProgressBar
+
+                android:id="@+id/circularProgressbar4"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="60"
+
+                android:progressDrawable="@drawable/circular"
+                android:secondaryProgress="100"
+                />
+        </LinearLayout>
+
+
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_progress_text"
+        android:layout_below="@+id/fl_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="cals"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Heart Rate"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Steps"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="BMI"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="@dimen/dimen_10dp"
+        android:id="@+id/rv_dashboardlist"
+        android:layout_below="@+id/ll_progress_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:backgroundTint="@color/orange"
+        android:src="@drawable/heart"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_100dp"
+        android:backgroundTint="@color/yellow"
+        android:src="@drawable/calculator"/>
+</RelativeLayout>
+</layout>
