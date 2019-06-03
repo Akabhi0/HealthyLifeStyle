@@ -30,4 +30,16 @@
     <string name="logout">Logout</string>
 
 
+    <!--Calculator Names-->
+    <string name="actv_bmic">Body Mass Index Calculator</string>
+    <string name="actv_lsrc">Life Style Risk Calculator</string>
+    <string name="actv_whrc">Waist Hip Ratio Calculator</string>
+    <string name="actv_cc">Calorie Calculator</string>
+    <string name="actv_hdrc">Heart Dieases Risk Calculator</string>
+    <string name="actv_thre">Target Heart Rate For Exercise </string>
+
+    <!--Dialog-->
+    <string name="calculator">Calculator</string>
+
+
 </resources>

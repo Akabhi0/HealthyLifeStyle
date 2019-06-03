@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardElevation="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/dimen_300dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:padding="@dimen/dimen_16dp"
+                android:text="@{title}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_bmic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/actv_bmic"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15sp"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/actv_title" />
+
+            <View
+                android:id="@+id/viewOne"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@+id/actv_bmic" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_lsrc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/actv_lsrc"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15sp"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/viewOne" />
+
+            <View
+                android:id="@+id/viewTwo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@+id/actv_lsrc" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_whrc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/actv_whrc"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15sp"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/viewTwo" />
+
+            <View
+                android:id="@+id/viewThree"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@+id/actv_whrc" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_cc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/actv_cc"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15sp"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/viewThree" />
+
+            <View
+                android:id="@+id/viewfour"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@+id/actv_cc" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_hdrc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/actv_hdrc"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15sp"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/viewfour" />
+
+            <View
+                android:id="@+id/viewfive"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@+id/actv_hdrc" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_thre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/actv_thre"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15sp"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/viewfive" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
