@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import com.dev.healthylifestyle.R;
 import com.dev.healthylifestyle.databinding.ActivityNavigationBinding;
 import com.dev.healthylifestyle.ui.CustomDialog;
+import com.dev.healthylifestyle.ui.patient.view.MeterClass;
 import com.dev.healthylifestyle.ui.patient.view.fragment.DashboardFragment;
 import com.dev.healthylifestyle.utility.BasicFunctions;
 import com.dev.healthylifestyle.utility.Constants;
@@ -37,12 +38,11 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         setToolbar("Dashboard");
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_dashboard:
-                // getSupportFragmentManager().beginTransaction().replace(R.id.container, new DashboardFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new DashboardFragment()).commit();
                 break;
             case R.id.nav_profile:
                 startActivity(BasicFunctions.useIntent(this, ProfileActivity.class));
@@ -51,7 +51,27 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             case R.id.nav_calculators:
                 CustomDialog customDialog = new CustomDialog(NavigationActivity.this,
                         getResources().getString(R.string.calculator),
-                        Constants.REQUEST_CALCULATOR_CODE
+                        Constants.REQUEST_CALCULATOR_CODE, new CustomDialog.onClickCalculatorDialog() {
+                    @Override
+                    public void onClickedDialogOption(Boolean clicked, int calculatorValue) {
+                        if (clicked)
+                            if (calculatorValue == Constants.BODY_MASS_CAL_VALUE) {
+                                startActivity(BasicFunctions.useIntent(NavigationActivity.this, BodyMassCalculatorActivity.class));
+                            } else if (calculatorValue == Constants.TARGET_HEART_VALUE) {
+                                startActivity(BasicFunctions.useIntent(NavigationActivity.this, TargetHeartRateCalculatorActivity.class));
+                            } else if (calculatorValue == Constants.LIFE_STYLE_RISK_VALUE) {
+                                startActivity(BasicFunctions.useIntent(NavigationActivity.this, LifeStyleRiskCalculatorActivity.class));
+                            } else if (calculatorValue == Constants.HEART_DIEASES_VALUE) {
+                                startActivity(BasicFunctions.useIntent(NavigationActivity.this, HeartDieasesRiskCalculatorActivity.class));
+                            } else if (calculatorValue == Constants.CALORIES_CALCULATOR_VALUE) {
+//                                startActivity(BasicFunctions.useIntent(NavigationActivity.this, CaloriesCalculatorActivity.class));
+                                MeterClass meterClass = new MeterClass(NavigationActivity.this);
+
+                            } else if (calculatorValue == Constants.WAIST_HIP_RATIO_VALUE) {
+                                startActivity(BasicFunctions.useIntent(NavigationActivity.this, WaistHipRateCalculatorActivity.class));
+                            }
+                    }
+                }
                 );
                 customDialog.show();
                 break;

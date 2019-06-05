@@ -12,23 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.patient.view.activity.HeartDieasesRiskCalculatorActivity"></activity>
+        <activity android:name=".ui.patient.view.activity.CaloriesCalculatorActivity" />
+        <activity android:name=".ui.patient.view.activity.WaistHipRateCalculatorActivity" />
+        <activity android:name=".ui.patient.view.activity.LifeStyleRiskCalculatorActivity" />
+        <activity android:name=".ui.patient.view.activity.TargetHeartRateCalculatorActivity" />
+        <activity android:name=".ui.patient.view.activity.BodyMassCalculatorActivity" />
         <activity android:name=".ui.patient.view.activity.ProfileActivity" />
-
         <activity
             android:name=".ui.patient.view.activity.NavigationActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.common.activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen" />
-
         <activity
             android:name=".ui.common.activities.ChooseRoleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen" />
-
         <activity
             android:name=".ui.common.activities.SplashActivity"
             android:screenOrientation="portrait"
@@ -39,7 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.common.MainActivity" />
     </application>
 
