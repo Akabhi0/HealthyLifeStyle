@@ -1,21 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:gauge="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="totalRatio"
+            type="String" />
+
+        <variable
+            name="waistValue"
+            type="String" />
+
+        <variable
+            name="hipValue"
+            type="String" />
+
+        <variable
+            name="unit"
+            type="String" />
+
+        <variable
+            name="viewModel"
+            type="com.dev.healthylifestyle.ui.patient.viewModel.WaistHipRateCalculatorViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/speedometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                app:sv_highSpeedColor="@color/red"
+                app:sv_indicator="NeedleIndicator"
+                app:sv_indicatorColor="@color/black"
+                app:sv_lowSpeedColor="@color/blue"
+                app:sv_lowSpeedPercent="25"
+                app:sv_markColor="@color/clear"
+                app:sv_mediumSpeedColor="@color/green"
+                app:sv_mediumSpeedPercent="65"
+                app:sv_speedTextColor="@color/white"
+                app:sv_textSize="@dimen/dimen_12sp"
+                app:sv_tickNumber="4"
+                app:sv_tickTextFormat="FLOAT"
+                app:sv_unitTextColor="@color/white"
+                app:sv_unitTextSize="13sp"
+                app:sv_unitUnderSpeedText="true"
+                app:sv_withTremble="false" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_speedMeter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="-50dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:text="@{totalRatio}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="32sp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_speedMeterText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:text="@string/lowhealthrisk"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="GENDER:" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aciv_male"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:onClick="@{() -> viewModel.onMaleClicked()}"
+                    android:src="@drawable/ic_male" />
+
+                <View
+                    android:layout_width="@dimen/dimen_2dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:background="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aciv_female"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:onClick="@{() -> viewModel.onFemaleClicked()}"
+                    android:src="@drawable/ic_female" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_waist_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_5dp"
+                    android:text="WAIST" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_waist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_5dp"
+                    android:text="@{waistValue}" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/acsb_waist"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_hip_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_5dp"
+                    android:text="LEVEL OF EXERCISE 100 % OF MAXIMUM HEART RATE" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_hip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_5dp"
+                    android:text="@{hipValue}" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/acsb_hip"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp" />
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

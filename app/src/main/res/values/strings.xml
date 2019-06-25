@@ -38,6 +38,96 @@
     <string name="actv_hdrc">Heart Dieases Risk Calculator</string>
     <string name="actv_thre">Target Heart Rate For Exercise </string>
 
+    <string name="moderate">Moderate Risk</string>
+    <string name="lowhealthrisk">Low Health Risk</string>
+    <string name="highrisk">High Risk</string>
+
+    <!--BMI Calculator-->
+    <string name="BMI_one">High risk</string>
+    <string name="BMI_two">Low risk</string>
+    <string name="BMI_three">Mild risk</string>
+    <string name="BMI_four">Moderate risk</string>
+    <string name="BMI_five">High risk</string>
+    <string name="BMI_six">Extermly high risk</string>
+    <string name="BMI_seven">Extermly high risk</string>
+
+
+    <string-array name="body_mass_value">
+        <item>Less than 18.5</item>
+        <item>18.5 - 24.9</item>
+        <item>25 - 29.9</item>
+        <item>30 - 34.9</item>
+        <item>35 - 39.9</item>
+        <item>40 - 49.9</item>
+        <item>greater than 50</item>
+    </string-array>
+
+    <!--HDR Calculator-->
+    <string name="HDR_one">High risk</string>
+    <string name="HDR_two">Low risk</string>
+    <string name="HDR_three">Mild risk</string>
+    <string name="HDR_four">Moderate risk</string>
+    <string name="HDR_five">High risk</string>
+    <string name="HDR_six">Extermly high risk</string>
+    <string name="HDR_seven">Extermly high risk</string>
+
+
+    <string-array name="heart_disease_value">
+        <item>-3 or less : 1%</item>
+        <item>-2 or -1 : 2%</item>
+        <item>0 : 3%</item>
+        <item>1 or 2 : 4%</item>
+        <item>3 : 6%</item>
+        <item>4 : 7%</item>
+        <item>5 : 9%</item>
+        <item>6 : 11%</item>
+        <item>7 : 14%</item>
+        <item>8 : 18%</item>
+        <item>9 : 22%</item>
+        <item>10 : 27%</item>
+        <item>11 : 33%</item>
+        <item>12 : 40%</item>
+        <item>13 :47%</item>
+        <item>14 or more : 56%</item>
+    </string-array>
+
+    <string-array name="age">
+        <item>20 to 34</item>
+        <item>35 to 50</item>
+        <item>50 : 65</item>
+        <item>65 : 80</item>
+    </string-array>
+
+    <string-array name="yes_no">
+        <item>Yes</item>
+        <item>Sometime</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Blood_Pressure">
+        <item>less than 120/80</item>
+        <item>120/80 to 139/89</item>
+        <item>less then 139/85</item>
+        <item>130/85 to 139/89</item>
+        <item>140/90 to 139/99</item>
+        <item>More than on equal to 160/100</item>
+    </string-array>
+
+    <string-array name="Diabetes">
+        <item>Do not have diabetes</item>
+        <item>Have diabetes or take anti-diabetic drugs</item>
+        <item>No</item>
+    </string-array>
+
+
+    <string-array name="smoke">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+
+    BLOOD PRESSURE
+
     <!--Dialog-->
     <string name="calculator">Calculator</string>
 

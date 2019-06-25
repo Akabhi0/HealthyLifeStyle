@@ -5,14 +5,21 @@
     <color name="colorAccent">#D81B60</color>
 
 
-    <color name="blue">#4190A3</color>
+    <color name="blue">#3399ff</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#99000000</color>
-    <color name="grey">#c9c9c9</color>
+    <color name="green">#66cc00</color>
     <color name="green_transparent">#89c69a</color>
     <color name="view_line">#c7c7c7</color>
     <color name="dark_green">#2faf49</color>
     <color name="yellow">#ea700b</color>
     <color name="orange">#fcc220</color>
+    <color name="clear">#00000000</color>
+    <color name="grey">#c9c9c9</color>
+    <color name="red">#D83F07</color>
+    <color name="light_yellow">#F0AD4E</color>
+    <color name="card_red">#D9534F</color>
+    <color name="background_grey">#EBEBEB</color>
+    <color name="select_green">#00BB7D</color>
 </resources>
