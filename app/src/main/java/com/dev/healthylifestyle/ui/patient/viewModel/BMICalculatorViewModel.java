@@ -6,15 +6,15 @@ import androidx.lifecycle.ViewModel;
 import com.dev.healthylifestyle.ui.patient.model.BMIArrayModel;
 import com.dev.healthylifestyle.ui.patient.model.BMISendModel;
 import com.dev.healthylifestyle.ui.patient.model.CommonModel;
-import com.dev.healthylifestyle.ui.patient.repository.BMIRepository;
+import com.dev.healthylifestyle.ui.patient.repository.Repository;
 
 public class BMICalculatorViewModel extends ViewModel {
 
-    private BMIRepository repository;
+    private Repository repository;
     private MutableLiveData<Boolean> onClicked = new MutableLiveData<>();
 
     public BMICalculatorViewModel() {
-        repository = BMIRepository.getBmiRepository();
+        repository = Repository.getBmiRepository();
     }
 
     public MutableLiveData<Boolean> getOnClicked() {

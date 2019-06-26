@@ -5,40 +5,100 @@ import com.google.gson.annotations.SerializedName;
 
 public class HDRSendModel {
 
-    @SerializedName("age")
+    @SerializedName("gender")
     @Expose
-    private int age;
+    private String gender;
 
-    @SerializedName("levelofexercise")
+    @SerializedName("agevalue")
     @Expose
-    private String levelofexercise;
+    private String agevalue;
+
+    @SerializedName("questsmoke")
+    @Expose
+    private String questsmoke;
+
+    @SerializedName("questexercise")
+    @Expose
+    private String questexercise;
+
+    @SerializedName("questbp")
+    @Expose
+    private String questbp;
+
+    @SerializedName("questdiabetes")
+    @Expose
+    private String questdiabetes;
 
     @SerializedName("userid")
     @Expose
     private int userid;
 
-    @SerializedName("targetheartvalue")
+    @SerializedName("totalcholesterol")
     @Expose
-    private String targetheartvalue;
+    private int totalcholesterol;
+
+    @SerializedName("goodcholesterol")
+    @Expose
+    private int goodcholesterol;
+
+    @SerializedName("badcholesterol")
+    @Expose
+    private int badcholesterol;
+
+    @SerializedName("heartdiseasevalue")
+    @Expose
+    private int heartdiseasevalue;
 
     @SerializedName("result")
     @Expose
     private String result;
 
-    public int getAge() {
-        return age;
+    public String getGender() {
+        return gender;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getLevelofexercise() {
-        return levelofexercise;
+    public String getAgevalue() {
+        return agevalue;
     }
 
-    public void setLevelofexercise(String levelofexercise) {
-        this.levelofexercise = levelofexercise;
+    public void setAgevalue(String agevalue) {
+        this.agevalue = agevalue;
+    }
+
+    public String getQuestsmoke() {
+        return questsmoke;
+    }
+
+    public void setQuestsmoke(String questsmoke) {
+        this.questsmoke = questsmoke;
+    }
+
+    public String getQuestexercise() {
+        return questexercise;
+    }
+
+    public void setQuestexercise(String questexercise) {
+        this.questexercise = questexercise;
+    }
+
+    public String getQuestbp() {
+        return questbp;
+    }
+
+    public void setQuestbp(String questbp) {
+        this.questbp = questbp;
+    }
+
+    public String getQuestdiabetes() {
+        return questdiabetes;
+    }
+
+    public void setQuestdiabetes(String questdiabetes) {
+        this.questdiabetes = questdiabetes;
     }
 
     public int getUserid() {
@@ -49,12 +109,36 @@ public class HDRSendModel {
         this.userid = userid;
     }
 
-    public String getTargetheartvalue() {
-        return targetheartvalue;
+    public int getTotalcholesterol() {
+        return totalcholesterol;
     }
 
-    public void setTargetheartvalue(String targetheartvalue) {
-        this.targetheartvalue = targetheartvalue;
+    public void setTotalcholesterol(int totalcholesterol) {
+        this.totalcholesterol = totalcholesterol;
+    }
+
+    public int getGoodcholesterol() {
+        return goodcholesterol;
+    }
+
+    public void setGoodcholesterol(int goodcholesterol) {
+        this.goodcholesterol = goodcholesterol;
+    }
+
+    public int getBadcholesterol() {
+        return badcholesterol;
+    }
+
+    public void setBadcholesterol(int badcholesterol) {
+        this.badcholesterol = badcholesterol;
+    }
+
+    public int getHeartdiseasevalue() {
+        return heartdiseasevalue;
+    }
+
+    public void setHeartdiseasevalue(int heartdiseasevalue) {
+        this.heartdiseasevalue = heartdiseasevalue;
     }
 
     public String getResult() {

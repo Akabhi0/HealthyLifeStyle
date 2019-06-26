@@ -458,6 +458,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dimen_16dp"
                     android:background="@drawable/post_button"
+                    android:onClick="@{() -> viewModel.onUpdate()}"
                     android:text="update"
                     android:textColor="@color/white" />
             </LinearLayout>

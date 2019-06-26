@@ -13,6 +13,9 @@ import androidx.lifecycle.ViewModelProviders;
 import com.dev.healthylifestyle.R;
 import com.dev.healthylifestyle.databinding.ActivityHeartDieasesRiskCalculatorBinding;
 import com.dev.healthylifestyle.ui.patient.adapters.HeartDieasesCalculatorAdapter;
+import com.dev.healthylifestyle.ui.patient.model.CommonModel;
+import com.dev.healthylifestyle.ui.patient.model.HDRArrayModel;
+import com.dev.healthylifestyle.ui.patient.model.HDRSendModel;
 import com.dev.healthylifestyle.ui.patient.viewModel.HeartDieasesRiskCalculatorViewModel;
 import com.dev.healthylifestyle.utility.BasicFunctions;
 import com.dev.healthylifestyle.utility.Constants;
@@ -37,7 +40,6 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
     }
 
     private void getViewModel() {
-
         valueHeartDieases = getResources().getStringArray(R.array.heart_disease_value);
         adapter = new HeartDieasesCalculatorAdapter(valueHeartDieases, HeartDieasesRiskCalculatorActivity.this);
         binding.recylerView.setAdapter(adapter);
@@ -46,6 +48,28 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
 
         viewModel = ViewModelProviders.of(this).get(HeartDieasesRiskCalculatorViewModel.class);
         binding.setViewModel(viewModel);
+
+        /**
+         * This is used for the getting the data from the API
+         */
+        viewModel.getHDRArrayMode(51).observe(HeartDieasesRiskCalculatorActivity.this, new Observer<HDRArrayModel>() {
+            @Override
+            public void onChanged(HDRArrayModel hdrArrayModel) {
+                if (hdrArrayModel != null) {
+                    binding.setBad(hdrArrayModel.getHdrModels().get(0).getBadcholesterol());
+                    binding.setGood(hdrArrayModel.getHdrModels().get(0).getGoodcholesterol());
+                    binding.setTotal(hdrArrayModel.getHdrModels().get(0).getTotalcholesterol());
+                    binding.setTextValue(hdrArrayModel.getHdrModels().get(0).getResult());
+                    binding.setTotalRatio(hdrArrayModel.getHdrModels().get(0).getHeartdiseasevalue());
+                    PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, binding.getTotalRatio());
+                    adapter.notifyDataSetChanged();
+
+                    binding.acsbBadCholesterol.setProgress(hdrArrayModel.getHdrModels().get(0).getBadcholesterol());
+                    binding.acsbGoodCholesterol.setProgress(hdrArrayModel.getHdrModels().get(0).getGoodcholesterol());
+                    binding.acsbTotalCholesterol.setProgress(hdrArrayModel.getHdrModels().get(0).getTotalcholesterol());
+                }
+            }
+        });
 
 
         /**
@@ -140,9 +164,42 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
             }
         });
 
+
         /**
-         * This is for the last function calling
+         * This is the observer for sending the data to the API
          */
+        viewModel.getOnUpdate().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (aBoolean) {
+                    HDRSendModel model = new HDRSendModel();
+                    model.setResult(binding.getTextValue());
+                    model.setAgevalue(ageSting);
+                    model.setBadcholesterol(binding.getBad());
+                    model.setGender(genderValue);
+                    model.setGoodcholesterol(binding.getGood());
+                    model.setHeartdiseasevalue(binding.getTotalRatio());
+                    model.setQuestbp(bloodString);
+                    model.setQuestdiabetes(diabetesString);
+                    model.setQuestexercise(exerciseString);
+                    model.setQuestsmoke(smokeString);
+                    model.setTotalcholesterol(binding.getTotal());
+                    model.setUserid(51);
+
+                    /**
+                     * This is for sending the data to the API
+                     */
+                    if (model != null) {
+                        viewModel.setBMIArrayModel(model).observe(HeartDieasesRiskCalculatorActivity.this, new Observer<CommonModel>() {
+                            @Override
+                            public void onChanged(CommonModel commonModel) {
+                                BasicFunctions.getToastMessage(commonModel.getResults(), HeartDieasesRiskCalculatorActivity.this);
+                            }
+                        });
+                    }
+                }
+            }
+        });
 
     }
 
