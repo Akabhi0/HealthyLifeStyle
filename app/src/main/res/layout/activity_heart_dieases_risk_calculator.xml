@@ -25,6 +25,10 @@
             name="bad"
             type="String" />
 
+        <variable
+            name="viewModel"
+            type="com.dev.healthylifestyle.ui.patient.viewModel.HeartDieasesRiskCalculatorViewModel" />
+
     </data>
 
     <LinearLayout
@@ -132,6 +136,7 @@
                         android:id="@+id/aciv_male"
                         android:layout_width="@dimen/dimen_50dp"
                         android:layout_height="@dimen/dimen_50dp"
+                        android:onClick="@{() -> viewModel.clickedMale()}"
                         android:src="@drawable/ic_male" />
 
                     <View
@@ -143,6 +148,7 @@
                         android:id="@+id/aciv_female"
                         android:layout_width="@dimen/dimen_50dp"
                         android:layout_height="@dimen/dimen_50dp"
+                        android:onClick="@{() -> viewModel.clickedFemale()}"
                         android:src="@drawable/ic_female" />
 
                 </LinearLayout>
@@ -257,7 +263,7 @@
                     android:layout_marginStart="@dimen/dimen_16dp"
                     android:layout_marginEnd="@dimen/dimen_16dp"
                     android:padding="@dimen/dimen_5dp"
-                    android:text="BLOOD PRESSURE?: " />
+                    android:text="DIABETES?: " />
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/acs_diabetes_spinner"

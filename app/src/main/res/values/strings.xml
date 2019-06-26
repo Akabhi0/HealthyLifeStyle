@@ -94,13 +94,13 @@
     <string-array name="age">
         <item>20 to 34</item>
         <item>35 to 50</item>
-        <item>50 : 65</item>
-        <item>65 : 80</item>
+        <item>50 to 65</item>
+        <item>65 to 80</item>
     </string-array>
 
     <string-array name="yes_no">
         <item>Yes</item>
-        <item>Sometime</item>
+        <item>Sometimes</item>
         <item>No</item>
     </string-array>
 
@@ -116,7 +116,6 @@
     <string-array name="Diabetes">
         <item>Do not have diabetes</item>
         <item>Have diabetes or take anti-diabetic drugs</item>
-        <item>No</item>
     </string-array>
 
 
