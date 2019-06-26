@@ -7,7 +7,7 @@
 
         <variable
             name="totalRatio"
-            type="String" />
+            type="Integer" />
 
         <variable
             name="textValue"
@@ -15,15 +15,15 @@
 
         <variable
             name="total"
-            type="String" />
+            type="Integer" />
 
         <variable
             name="good"
-            type="String" />
+            type="Integer" />
 
         <variable
             name="bad"
-            type="String" />
+            type="Integer" />
 
         <variable
             name="viewModel"
@@ -42,6 +42,21 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:padding="@dimen/dimen_5dp"
+            android:text="Points: 10 year Risk Persentage"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_grey" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -52,23 +67,6 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16dp"
-                    android:layout_marginTop="@dimen/dimen_16dp"
-                    android:layout_marginEnd="@dimen/dimen_16dp"
-                    android:padding="@dimen/dimen_5dp"
-                    android:text="Points: 10 year Risk Persentage"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recylerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/background_grey" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -96,7 +94,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/dimen_10dp"
-                            android:text="@{totalRatio}"
+                            android:text="@{``+totalRatio}"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="30sp"
@@ -303,7 +301,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dimen_5dp"
-                        android:text="@{total}"
+                        android:text="@{``+total}"
                         android:textColor="@color/blue" />
                 </LinearLayout>
 
@@ -325,7 +323,9 @@
                         android:layout_height="32dp"
                         android:layout_marginTop="@dimen/dimen_8dp"
                         android:layout_weight="5"
-                        android:max="350" />
+                        android:max="350"
+                        android:progressTint="@color/blue"
+                        android:thumb="@drawable/blue_circle" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="50dp"
@@ -357,7 +357,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dimen_5dp"
-                        android:text="@{good}"
+                        android:text="@{``+good}"
                         android:textColor="@color/blue" />
                 </LinearLayout>
 
@@ -379,7 +379,9 @@
                         android:layout_height="32dp"
                         android:layout_marginTop="@dimen/dimen_8dp"
                         android:layout_weight="5"
-                        android:max="300" />
+                        android:max="300"
+                        android:progressTint="@color/blue"
+                        android:thumb="@drawable/blue_circle" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="50dp"
@@ -410,7 +412,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dimen_5dp"
-                        android:text="@{bad}"
+                        android:text="@{``+bad}"
                         android:textColor="@color/red" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -438,7 +440,9 @@
                         android:layout_height="32dp"
                         android:layout_marginTop="@dimen/dimen_8dp"
                         android:layout_weight="5"
-                        android:max="300" />
+                        android:max="300"
+                        android:progressTint="@color/red"
+                        android:thumb="@drawable/red_circle" />
 
 
                     <androidx.appcompat.widget.AppCompatImageView

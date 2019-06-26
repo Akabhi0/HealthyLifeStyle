@@ -26,5 +26,6 @@ public class Constants {
 
     public static String GENDER = "";
     public static String TOTAL_BMI_RATIO = "total_bmi_cal";
+    public static String TOTAL_HDR_RATIO = "total_hdr_cal";
 
 }

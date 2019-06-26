@@ -1,6 +1,8 @@
 package com.dev.healthylifestyle.ui.patient.view.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.SeekBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,14 +15,18 @@ import com.dev.healthylifestyle.databinding.ActivityHeartDieasesRiskCalculatorBi
 import com.dev.healthylifestyle.ui.patient.adapters.HeartDieasesCalculatorAdapter;
 import com.dev.healthylifestyle.ui.patient.viewModel.HeartDieasesRiskCalculatorViewModel;
 import com.dev.healthylifestyle.utility.BasicFunctions;
+import com.dev.healthylifestyle.utility.Constants;
+import com.dev.healthylifestyle.utility.PreferenceHelper;
 
 public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
+
     private ActivityHeartDieasesRiskCalculatorBinding binding;
     private HeartDieasesCalculatorAdapter adapter;
     private String[] valueHeartDieases;
     private int ageValue, smokeValue, exerciseValue, bloodValue, diabtiesValue, totalColestrolValue, goodColestrolValue, badColestrolValue;
-    private String genderValue = "Male";
+    private String genderValue = "Male", ageSting, smokeString, exerciseString, bloodString, diabetesString;
     private HeartDieasesRiskCalculatorViewModel viewModel;
+    private int totalValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +37,11 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
     }
 
     private void getViewModel() {
+
         valueHeartDieases = getResources().getStringArray(R.array.heart_disease_value);
-        adapter = new HeartDieasesCalculatorAdapter(valueHeartDieases);
+        adapter = new HeartDieasesCalculatorAdapter(valueHeartDieases, HeartDieasesRiskCalculatorActivity.this);
         binding.recylerView.setAdapter(adapter);
+        PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
         binding.recylerView.setLayoutManager(BasicFunctions.getLinearLayoutManager(HeartDieasesRiskCalculatorActivity.this));
 
         viewModel = ViewModelProviders.of(this).get(HeartDieasesRiskCalculatorViewModel.class);
@@ -46,16 +54,20 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
         viewModel.getClickedMale().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if (aBoolean)
+                if (aBoolean) {
                     genderValue = "Male";
+                    getFinalResult();
+                }
             }
         });
 
         viewModel.getClickedFemale().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if (aBoolean)
+                if (aBoolean) {
                     genderValue = "Female";
+                    getFinalResult();
+                }
             }
         });
 
@@ -71,8 +83,8 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
         binding.acsbBadCholesterol.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                binding.setBad(String.valueOf(progress));
-                getBadCholesterolValue(Integer.parseInt(binding.getBad()));
+                binding.setBad(progress);
+                getFinalResult();
             }
 
             @Override
@@ -92,8 +104,8 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
         binding.acsbGoodCholesterol.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                binding.setGood(String.valueOf(progress));
-                getGoodCholesterolValue(Integer.parseInt(binding.getGood()));
+                binding.setGood(progress);
+                getFinalResult();
             }
 
             @Override
@@ -113,8 +125,8 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
         binding.acsbTotalCholesterol.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                binding.setTotal(String.valueOf(progress));
-                getTotalCholesterolValue(Integer.parseInt(binding.getTotal()));
+                binding.setTotal(progress);
+                getFinalResult();
             }
 
             @Override
@@ -127,6 +139,11 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
 
             }
         });
+
+        /**
+         * This is for the last function calling
+         */
+
     }
 
     /**
@@ -138,32 +155,102 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
          */
         binding.acsAgeSpinner.setAdapter(BasicFunctions.getArrayAdapterSpinner(
                 this, getResources().getStringArray(R.array.age)));
+        ageSting = binding.acsAgeSpinner.getSelectedItem().toString();
+        binding.acsAgeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ageSting = binding.acsAgeSpinner.getItemAtPosition(position).toString();
+                getFinalResult();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         /**
          * This is for setting the smoke
          */
         binding.acsSmokeSpinner.setAdapter(BasicFunctions.getArrayAdapterSpinner(
                 this, getResources().getStringArray(R.array.smoke)));
+        smokeString = binding.acsSmokeSpinner.getSelectedItem().toString();
+        binding.acsSmokeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                smokeString = binding.acsSmokeSpinner.getItemAtPosition(position).toString();
+                getFinalResult();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         /**
          * This is for setting the exercise
          */
         binding.acsExerciseSpinner.setAdapter(BasicFunctions.getArrayAdapterSpinner(
                 this, getResources().getStringArray(R.array.yes_no)));
+        exerciseString = binding.acsExerciseSpinner.getSelectedItem().toString();
+        binding.acsExerciseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                exerciseString = binding.acsExerciseSpinner.getItemAtPosition(position).toString();
+                getFinalResult();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         /**
          * This is for setting the blood pressure
          */
         binding.acsBloodSpinner.setAdapter(BasicFunctions.getArrayAdapterSpinner(
                 this, getResources().getStringArray(R.array.Blood_Pressure)));
+        bloodString = binding.acsBloodSpinner.getSelectedItem().toString();
+        binding.acsBloodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                bloodString = binding.acsBloodSpinner.getItemAtPosition(position).toString();
+                getFinalResult();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         /**
          * This is for setting the diabetes pressure
          */
         binding.acsDiabetesSpinner.setAdapter(BasicFunctions.getArrayAdapterSpinner(
                 this, getResources().getStringArray(R.array.Diabetes)));
+        diabetesString = binding.acsDiabetesSpinner.getSelectedItem().toString();
+        binding.acsDiabetesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                diabetesString = binding.acsDiabetesSpinner.getItemAtPosition(position).toString();
+                getFinalResult();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
+    /**
+     * This is age function
+     *
+     * @param age
+     */
     private void ageFunction(String age) {
         if (genderValue.equals("Male")) {
             ageValueFunction(age, -1, 4, 6, 7);
@@ -239,7 +326,6 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
             diabtiesValue = 1;
     }
 
-
     /**
      * This is the slider related function
      *
@@ -308,8 +394,157 @@ public class HeartDieasesRiskCalculatorActivity extends AppCompatActivity {
         }
     }
 
-    private void hearRiskValue() {
+    private void getFinalValue_And_Risk_Type() {
+        totalValue = ageValue + totalColestrolValue + goodColestrolValue + badColestrolValue +
+                smokeValue + exerciseValue + bloodValue + diabtiesValue;
 
+        binding.setTotalRatio(totalValue);
+        if (totalValue <= -3) {
+            binding.setTextValue("Low Health Risk");
+
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if ((totalValue >= -2) && (totalValue <= -1)) {
+            binding.setTextValue("Low Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 0) {
+            binding.setTextValue("Low Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if ((totalValue == 1) || (totalValue == 2)) {
+            binding.setTextValue("Low Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 3) {
+            binding.setTextValue("Low Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 4) {
+            binding.setTextValue("Low Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 5) {
+            binding.setTextValue("Moderate Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 6) {
+            binding.setTextValue("Moderate Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 7) {
+            binding.setTextValue("Moderate Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 8) {
+            binding.setTextValue("High Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 9) {
+            binding.setTextValue("High Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 10) {
+            binding.setTextValue("High Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 11) {
+            binding.setTextValue("High Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 12) {
+            binding.setTextValue("High Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue == 13) {
+            binding.setTextValue("High Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (totalValue >= 14) {
+            binding.setTextValue("High Health Risk");
+            PreferenceHelper.getInstance().clear();
+            if (adapter != null) {
+                PreferenceHelper.getInstance().putDouble(Constants.TOTAL_HDR_RATIO, totalValue);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    /**
+     * This is the final calculatin
+     */
+    private void getFinalResult() {
+        ageFunction(ageSting);
+        smokeValueFunction(smokeString);
+        exerciseValueFunction(exerciseString);
+        bloodPressureValue(bloodString);
+        diabetiesFunction(diabetesString);
+
+        if (binding.getBad() != null) {
+            getBadCholesterolValue(binding.getBad());
+        } else {
+            binding.setBad(0);
+            getBadCholesterolValue(binding.getBad());
+        }
+        if (binding.getGood() != null) {
+            getGoodCholesterolValue(binding.getGood());
+        } else {
+            binding.setGood(0);
+            getGoodCholesterolValue(binding.getGood());
+        }
+        if (binding.getTotal() != null) {
+            getTotalCholesterolValue(binding.getTotal());
+        } else {
+            binding.setTotal(0);
+            getTotalCholesterolValue(binding.getTotal());
+        }
+
+        getFinalValue_And_Risk_Type();
     }
 
     /**
